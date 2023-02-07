@@ -1,0 +1,112 @@
+<div class="container">
+ 
+    <div class="row">
+        <div class="col-md-8 mx-auto pt-3" >
+            
+<form [formGroup]="formService.form" (submit)="onSubmit()">
+<input type="hidden" formControlName="_id">
+<!-- FullNAme -->
+<div class="row mt-2" formGroupName="fullName" >
+    <div class="col-md-6 col-sm-12">
+        <label for="fname">FirstName</label>
+<input class="form-control" id="fname" type="text" formControlName="firstName" >
+<span  *ngIf="getForm().fullName.get('firstName')?.touched && getForm().fullName.get('firstName')?.errors?.required">Name is mandatory</span>   
+</div>
+
+    <div class="col-md-6 col-sm-12">
+        <label for="lname">LastName</label>
+       <input class="form-control" id="lname" type="text" formControlName="lastName"> 
+   <span  *ngIf="getForm().fullName.get('lastName')?.touched && getForm().fullName.get('lastName')?.errors?.required">last name mandatory</span>   
+    </div>
+</div>
+<!-- email -->
+<div class="form-group mt-2">
+   <label for="email">Email</label>
+   <input class="form-control" type="email" name="" id="email" formControlName="email">
+   <span  *ngIf="getForm().email?.touched && getForm().email?.errors?.required">Email is  mandatory</span> 
+   <span  *ngIf="getForm().email?.touched && getForm().email?.errors?.pattern">Provide a valid email</span>     
+</div>
+
+<!-- mobile -->
+<div class="form-group mt-2">
+    <label for="mobile">Mobile</label>
+    <input class="form-control" type="text" name="" id="mobile" formControlName="mobile">
+    <span  *ngIf="getForm().mobile?.touched && getForm().mobile?.errors?.required">mobile is  mandatory</span>
+    <span  *ngIf="getForm().mobile?.touched && getForm().mobile?.errors?.pattern">Provide a valid mobile</span>   
+    <span  *ngIf="getForm().mobile?.touched && getForm().mobile?.errors?.minlength">provide a ten digit mobile number</span>   
+</div>
+
+ <div class="mt-2">
+    <div class=" form-check-inline">
+      <label for="">Gender:</label>
+       
+    </div>
+    <div class="form-check form-check-inline">
+      
+        <input class="form-check-input" type="radio" name="gender" value="male" formControlName="gender">
+        <label for="">  Male</label>
+      
+    </div>
+    <div class="form-check form-check-inline">
+        
+        <input class="form-check-input" type="radio" name="gender"  value="female" formControlName="gender">
+        <label for="">  Female</label>
+      
+    </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- address -->
+<div class="" formGroupName="address">
+    <div class="form-group mt-2">
+        <label for="land">Landmark</label>
+        <input class="form-control" type="text"  id="land" formControlName="landmark">
+     </div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-12 mt-2">
+     
+        <select  class="form-select" (change)="onChange()" formControlName="state">
+            
+            <option  [ngValue]="null" selected disabled hidden>Select state</option>
+            <option *ngFor="let state of states " value="{{state.state}}">{{state.state}}</option>
+           
+          </select> 
+    </div>
+    <div class="col-md-6 col-sm-12 mt-2">
+      
+        <select  class="form-select" formControlName="district">
+            <option  [ngValue]="null" selected disabled hidden>Select District</option>
+            <option *ngFor="let state of districtName " value="{{state}}">{{state}}</option>
+           
+          </select>
+    </div>
+</div>
+
+   
+     
+    
+</div>
+
+
+<button [disabled]="formService.form.invalid" class="btn mt-2 form-control" type="submit">Submit</button>
+</form>
+
+
+
+        </div>
+    </div>
+</div>

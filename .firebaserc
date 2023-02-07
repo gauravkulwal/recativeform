@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angulartodo-b8ec7": {
+      "hosting": {
+        "reactiveFormValidation": [
+          "angulartodo-b8ec7"
+        ]
+      }
+    }
+  }
+}

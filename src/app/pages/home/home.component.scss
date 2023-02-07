@@ -1,0 +1,30 @@
+label   {
+    font-size:small;
+ 
+}
+button{
+    outline: 1px solid blue;
+
+  
+}
+button:hover{
+    background-color: rgb(91, 91, 250);
+    color:white;
+}
+select {
+   
+    font-size:small;
+  }
+  input{
+    height:1.5em;
+  }
+  input[type=radio]{
+    height:1em;
+  }
+ input.ng-touched.ng-invalid{
+ border: 1px solid red;
+ }
+ span{
+  color:red;
+  font-size:small;
+ }
